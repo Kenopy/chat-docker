@@ -1,6 +1,6 @@
 import threading
 import socket
-volume_path = 'C:\\Users\\xavie\\OneDrive\\Documentos\\sistemasDistribuidos\\chatV2'
+volume_path = 'C:\\Users\\20192ewbj0060\\Documents\\SD'
 
 def main():
     #Definindo IPV4 e protocolo TCP
@@ -8,7 +8,7 @@ def main():
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     try:
-        client_socket.connect(('localhost', 8081))
+        client_socket.connect(('localhost', 80))
     except:
         return print('\nNão foi possível se conectar ao servidor!\n')
 
@@ -17,9 +17,10 @@ def main():
         # Exibição do histórico
     
     
-    with open(f'{volume_path}/logChat.txt', 'r') as file:
+    with open(f'{volume_path}\\logaChat.txt', 'r') as file:
         print('Histórico de Mensagens:')
         print(file.read())
+
     print('Digite sua mensagem:')
 
     thread1 = threading.Thread(target=receiveMessages, args=[client_socket])
